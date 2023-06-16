@@ -8,14 +8,17 @@
         android:icon="@drawable/home"
         />
     <item
+        android:id="@+id/search_fragment"
         android:title="Поиск"
         android:icon="@drawable/search"
         />
     <item
+        android:id="@+id/bag_fragment"
         android:title="Корзина"
         android:icon="@drawable/bag"
         />
     <item
+        android:id="@+id/profile_fragment"
         android:title="Аккаунт"
         android:icon="@drawable/profile"
         />

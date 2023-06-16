@@ -7,7 +7,10 @@
     tools:context=".fragments.MainFragment">
 
 
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="Main"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_category"
         android:layout_width="match_parent"
