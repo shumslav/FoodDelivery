@@ -80,6 +80,19 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    def versionRetrofit = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$versionRetrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versionRetrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$versionRetrofit"
+
+    //OkHttp
+    def versionOkHttp = '4.11.0'
+    implementation "com.squareup.okhhtp3:okhhtp3:$versionOkHttp"
+    implementation "com.squareup.okhhtp3:logging-interceptor:$versionOkHttp"
+
+
+    //RxJava
+    def versionRxJava = '3.1.6'
+    implementation "io.reactivex.rxjava3:rxjava:3.1.6"
+    implementation "io.reactivex.rxjava3:rxandroid:3.1.6"
 }
