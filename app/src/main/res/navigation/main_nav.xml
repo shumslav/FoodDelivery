@@ -12,17 +12,17 @@
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/bag_fragment"
-        android:name="com.example.testapp.BagFragment"
+        android:name="com.example.testapp.fragments.BagFragment"
         android:label="fragment_bag"
         tools:layout="@layout/fragment_bag" />
     <fragment
         android:id="@+id/profile_fragment"
-        android:name="com.example.testapp.ProfileFragment"
+        android:name="com.example.testapp.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/search_fragment"
-        android:name="com.example.testapp.SearchFragment"
+        android:name="com.example.testapp.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
 
