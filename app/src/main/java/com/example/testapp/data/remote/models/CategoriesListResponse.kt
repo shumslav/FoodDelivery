@@ -1,3 +1,9 @@
 package com.example.testapp.data.remote.models
 
-data class CategoriesListResponse(val categories:List<CategoriesListItem>)
+import com.google.gson.annotations.SerializedName
+
+data class CategoriesListResponse(
+    @SerializedName("сategories")
+    val categories:List<CategoriesListItem>
+    )
+
