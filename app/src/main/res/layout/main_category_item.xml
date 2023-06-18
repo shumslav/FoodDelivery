@@ -6,18 +6,20 @@
 
         <variable
             name="category"
-            type="com.example.testapp.models.Category" />
+            type="com.example.testapp.data.remote.models.CategoriesListItem" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="148dp"
         app:cardCornerRadius="10dp"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp">
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
+            android:scaleType="centerCrop"
             android:layout_height="match_parent"/>
 
         <RelativeLayout
@@ -29,7 +31,9 @@
                 android:layout_width="154dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/category"
-                android:text="Пекарни и кондитерские"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:text="@{category.name}"
                 android:textColor="@color/black"
                 android:textSize="20sp">
 
