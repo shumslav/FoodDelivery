@@ -19,6 +19,7 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
 
     val categories: MutableLiveData<List<CategoriesListItem>> = MutableLiveData()
     val dishes: MutableLiveData<List<DishesItem>> = MutableLiveData()
+    val dishesCategories: MutableLiveData<List<String>> = MutableLiveData()
     private val compositeDisposable = CompositeDisposable()
 
     init {
@@ -28,12 +29,31 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 categories.value = it.categories
+
             }, {})
         )
+        compositeDisposable.add(testApi.getDishesList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                dishes.value = it.dishes
+                dishesCategories.value = getAllCategories(it.dishes)
+            }, {}))
     }
 
     override fun onCleared() {
         compositeDisposable.clear()
         super.onCleared()
+    }
+
+    private fun getAllCategories(dishes: List<DishesItem>): List<String> {
+        val list = mutableListOf<String>()
+        dishes.forEach {dish ->
+            dish.tags.forEach{
+                if (!list.contains(it))
+                    list.add(it)
+            }
+        }
+        return list
     }
 }

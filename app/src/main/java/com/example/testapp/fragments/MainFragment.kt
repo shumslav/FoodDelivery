@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
         val viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
 
         viewModel.categories.observe(viewLifecycleOwner){
-            val adapter = CategoriesAdapter(it)
+            val adapter = CategoriesAdapter(it, this)
             binding.recyclerCategory.adapter = adapter
             binding.recyclerCategory.layoutManager =LinearLayoutManager(requireContext())
         }

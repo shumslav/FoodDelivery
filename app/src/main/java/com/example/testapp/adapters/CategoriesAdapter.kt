@@ -1,14 +1,18 @@
 package com.example.testapp.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testapp.R
 import com.example.testapp.data.remote.models.CategoriesListItem
 import com.example.testapp.databinding.MainCategoryItemBinding
+import com.example.testapp.fragments.CategoryFragment
 import com.example.testapp.viewModels.MainViewModel
 import com.squareup.picasso.Picasso
 
-class CategoriesAdapter(private val categories: List<CategoriesListItem>) :
+class CategoriesAdapter(private val categories: List<CategoriesListItem>, private val fragment: Fragment) :
     RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder>() {
     class CategoriesHolder(val binding: MainCategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -28,6 +32,16 @@ class CategoriesAdapter(private val categories: List<CategoriesListItem>) :
         val category = categories[position]
         holder.binding.category = category
         Picasso.get().load(category.imageUrl).into(holder.binding.image)
+        onClickCategory(holder.binding.card,category.name)
 
+    }
+
+    fun onClickCategory(card: View, category:String){
+        card.setOnClickListener {
+            fragment.childFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, CategoryFragment.newInstance(category))
+                .addToBackStack("CategoryFragment")
+                .commit()
+        }
     }
 }
