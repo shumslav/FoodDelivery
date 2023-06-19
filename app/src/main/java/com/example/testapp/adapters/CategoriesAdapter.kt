@@ -8,7 +8,7 @@ import com.example.testapp.databinding.MainCategoryItemBinding
 import com.example.testapp.viewModels.MainViewModel
 import com.squareup.picasso.Picasso
 
-class CategoriesAdapter(val categories: List<CategoriesListItem>) :
+class CategoriesAdapter(private val categories: List<CategoriesListItem>) :
     RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder>() {
     class CategoriesHolder(val binding: MainCategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
