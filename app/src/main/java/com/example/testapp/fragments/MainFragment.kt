@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
         App.appComponent.inject(this)
         val binding = FragmentMainBinding.inflate(inflater, container, false)
 
-        val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        val viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
 
         viewModel.categories.observe(viewLifecycleOwner){
             val adapter = CategoriesAdapter(it)

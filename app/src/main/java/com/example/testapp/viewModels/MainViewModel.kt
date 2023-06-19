@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.testapp.App
 import com.example.testapp.data.remote.TestApi
 import com.example.testapp.data.remote.models.CategoriesListItem
+import com.example.testapp.data.remote.models.DishesItem
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -17,6 +18,7 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
     lateinit var testApi: TestApi
 
     val categories: MutableLiveData<List<CategoriesListItem>> = MutableLiveData()
+    val dishes: MutableLiveData<List<DishesItem>> = MutableLiveData()
     private val compositeDisposable = CompositeDisposable()
 
     init {
@@ -28,5 +30,10 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
                 categories.value = it.categories
             }, {})
         )
+    }
+
+    override fun onCleared() {
+        compositeDisposable.clear()
+        super.onCleared()
     }
 }
