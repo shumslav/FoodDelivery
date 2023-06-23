@@ -20,6 +20,7 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
     val categories: MutableLiveData<List<CategoriesListItem>> = MutableLiveData()
     val dishes: MutableLiveData<List<DishesItem>> = MutableLiveData()
     val dishesCategories: MutableLiveData<List<String>> = MutableLiveData()
+    val selectedCategory: MutableLiveData<String> = MutableLiveData()
     private val compositeDisposable = CompositeDisposable()
 
     init {
@@ -38,6 +39,9 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
             .subscribe({
                 dishes.value = it.dishes
                 dishesCategories.value = getAllCategories(it.dishes)
+                if (selectedCategory.value.isNullOrEmpty()){
+                    selectedCategory.value = dishesCategories.value?.first()
+                }
             }, {}))
     }
 
@@ -54,6 +58,7 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
                     list.add(it)
             }
         }
+        list.sort()
         return list
     }
 }

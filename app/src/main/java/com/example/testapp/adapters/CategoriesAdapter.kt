@@ -15,9 +15,7 @@ import com.squareup.picasso.Picasso
 class CategoriesAdapter(private val categories: List<CategoriesListItem>, private val fragment: Fragment) :
     RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder>() {
     class CategoriesHolder(val binding: MainCategoryItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-    }
+        RecyclerView.ViewHolder(binding.root) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesHolder {
         return CategoriesHolder(
@@ -33,7 +31,6 @@ class CategoriesAdapter(private val categories: List<CategoriesListItem>, privat
         holder.binding.category = category
         Picasso.get().load(category.imageUrl).into(holder.binding.image)
         onClickCategory(holder.binding.card,category.name)
-
     }
 
     fun onClickCategory(card: View, category:String){

@@ -54,9 +54,16 @@
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categories_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="8dp"
+                android:paddingVertical="5dp"
+                android:layout_marginTop="9dp"
+                android:clipToPadding="false"
+                android:scrollbars="none" />
 
         </LinearLayout>
 
