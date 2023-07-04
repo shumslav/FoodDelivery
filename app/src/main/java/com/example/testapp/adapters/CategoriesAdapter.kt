@@ -1,5 +1,6 @@
 package com.example.testapp.adapters
 
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,11 @@ import com.example.testapp.fragments.CategoryFragment
 import com.example.testapp.viewModels.MainViewModel
 import com.squareup.picasso.Picasso
 
-class CategoriesAdapter(private val categories: List<CategoriesListItem>, private val fragment: Fragment) :
+class CategoriesAdapter(
+    private val categories: List<CategoriesListItem>,
+    private val fragment: Fragment,
+    private val viewModel: MainViewModel
+) :
     RecyclerView.Adapter<CategoriesAdapter.CategoriesHolder>() {
     class CategoriesHolder(val binding: MainCategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {}
@@ -30,11 +35,14 @@ class CategoriesAdapter(private val categories: List<CategoriesListItem>, privat
         val category = categories[position]
         holder.binding.category = category
         Picasso.get().load(category.imageUrl).into(holder.binding.image)
-        onClickCategory(holder.binding.card,category.name)
+        onClickCategory(holder.binding.card, category.name)
     }
 
-    fun onClickCategory(card: View, category:String){
+    private fun onClickCategory(card: View, category: String) {
         card.setOnClickListener {
+            viewModel.dishesCategories.value?.let {
+                viewModel.selectedCategory.value = it.first()
+            }
             fragment.childFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, CategoryFragment.newInstance(category))
                 .addToBackStack("CategoryFragment")

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="selected_category">#3364E0</color>
     <color name="not_selected_category">#F8F7F5</color>
+    <color name="dish_card">#F8F7F5</color>
 </resources>

@@ -53,7 +53,6 @@ class DishesCategoriesAdapter(
             holder.binding.card.setCardBackgroundColor(context.getColor(R.color.not_selected_category))
         }
         holder.binding.categoryName = category
-        holder.binding.card.radius = 200F
         holder.binding.card.setOnClickListener {
             if (category != selectedCategory) {
                 viewModel.selectedCategory.value = category

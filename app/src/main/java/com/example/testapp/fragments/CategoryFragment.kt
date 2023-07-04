@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.testapp.R
+import com.example.testapp.adapters.DishesAdapter
 import com.example.testapp.adapters.DishesCategoriesAdapter
 import com.example.testapp.databinding.FragmentCategoryBinding
 import com.example.testapp.viewModels.MainViewModel
@@ -35,12 +36,17 @@ class CategoryFragment : Fragment() {
             requireParentFragment().childFragmentManager.popBackStack()
         }
         val viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
-        val adapter = DishesCategoriesAdapter(requireContext(), viewModel, viewLifecycleOwner)
+
+        val adapterCategory = DishesCategoriesAdapter(requireContext(), viewModel, viewLifecycleOwner)
         binding.categoriesRecycler.layoutManager = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.HORIZONTAL, false
         )
-        binding.categoriesRecycler.adapter = adapter
+        binding.categoriesRecycler.adapter = adapterCategory
+
+        val adapterDishes = DishesAdapter(viewModel, viewLifecycleOwner)
+        binding.dishesRecycler.layoutManager = GridLayoutManager(requireContext(),3)
+        binding.dishesRecycler.adapter = adapterDishes
 
         return binding.root
     }

@@ -25,13 +25,14 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
 
     init {
         App.appComponent.inject(this)
-        compositeDisposable.add(testApi.getCategoriesList()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                categories.value = it.categories
+        compositeDisposable.add(
+            testApi.getCategoriesList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    categories.value = it.categories
 
-            }, {})
+                }, {})
         )
         compositeDisposable.add(testApi.getDishesList()
             .subscribeOn(Schedulers.io())
@@ -39,10 +40,11 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
             .subscribe({
                 dishes.value = it.dishes
                 dishesCategories.value = getAllCategories(it.dishes)
-                if (selectedCategory.value.isNullOrEmpty()){
+                if (selectedCategory.value.isNullOrEmpty()) {
                     selectedCategory.value = dishesCategories.value?.first()
                 }
-            }, {}))
+            }, {})
+        )
     }
 
     override fun onCleared() {
@@ -52,13 +54,24 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
 
     private fun getAllCategories(dishes: List<DishesItem>): List<String> {
         val list = mutableListOf<String>()
-        dishes.forEach {dish ->
-            dish.tags.forEach{
+        dishes.forEach { dish ->
+            dish.tags.forEach {
                 if (!list.contains(it))
                     list.add(it)
             }
         }
         list.sort()
         return list
+    }
+
+    fun getDishesByCategory(category: String): List<DishesItem> {
+        val result = mutableListOf<DishesItem>()
+        dishes.value?.let { dishes->
+            dishes.forEach {
+                if (it.tags.contains(category))
+                    result.add(it)
+            }
+        }
+        return result
     }
 }
