@@ -1,10 +1,10 @@
 package com.example.testapp.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +31,7 @@ class CategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentCategoryBinding.inflate(inflater, container, false)
+
         category?.let { binding.categoryName = category }
         binding.btnBack.setOnClickListener {
             requireParentFragment().childFragmentManager.popBackStack()
@@ -44,7 +45,7 @@ class CategoryFragment : Fragment() {
         )
         binding.categoriesRecycler.adapter = adapterCategory
 
-        val adapterDishes = DishesAdapter(viewModel, viewLifecycleOwner)
+        val adapterDishes = DishesAdapter(this, viewModel, viewLifecycleOwner)
         binding.dishesRecycler.layoutManager = GridLayoutManager(requireContext(),3)
         binding.dishesRecycler.adapter = adapterDishes
 

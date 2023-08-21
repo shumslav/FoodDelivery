@@ -21,10 +21,12 @@ class MainViewModel(myApp: Application) : AndroidViewModel(myApp) {
     val dishes: MutableLiveData<List<DishesItem>> = MutableLiveData()
     val dishesCategories: MutableLiveData<List<String>> = MutableLiveData()
     val selectedCategory: MutableLiveData<String> = MutableLiveData()
+    val searchString: MutableLiveData<String> = MutableLiveData()
     private val compositeDisposable = CompositeDisposable()
 
     init {
         App.appComponent.inject(this)
+        searchString.value = ""
         compositeDisposable.add(
             testApi.getCategoriesList()
                 .subscribeOn(Schedulers.io())
