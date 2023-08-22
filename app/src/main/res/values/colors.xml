@@ -11,4 +11,5 @@
     <color name="not_selected_category">#F8F7F5</color>
     <color name="dish_card">#F8F7F5</color>
     <color name="background_dish_card">#66000000</color>
+    <color name="bag_settings">#EFEEEC</color>
 </resources>

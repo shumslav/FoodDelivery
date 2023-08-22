@@ -42,6 +42,18 @@ class ProductFragment : Fragment() {
             parentFragmentManager.popBackStack()
         }
 
+        binding.addBag.setOnClickListener {
+            val copyBag = viewModel.bag.value?.also {
+                if (productId!= null){
+                    if (it.contains(productId))
+                        it[productId!!] = it[productId!!]!! + 1
+                    else
+                        it[productId!!] = 1
+                }
+            }
+            viewModel.bag.value = copyBag
+        }
+
         return binding.root
     }
 
