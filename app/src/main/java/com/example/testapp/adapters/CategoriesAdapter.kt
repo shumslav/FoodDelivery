@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
-import com.example.testapp.data.remote.models.CategoriesListItem
+import com.example.testapp.data.models.CategoriesListItem
 import com.example.testapp.databinding.MainCategoryItemBinding
 import com.example.testapp.fragments.CategoryFragment
 import com.example.testapp.viewModels.MainViewModel

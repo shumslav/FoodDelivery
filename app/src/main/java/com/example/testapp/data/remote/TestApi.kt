@@ -1,7 +1,7 @@
 package com.example.testapp.data.remote
 
-import com.example.testapp.data.remote.models.CategoriesListResponse
-import com.example.testapp.data.remote.models.DishesResponse
+import com.example.testapp.data.models.CategoriesListResponse
+import com.example.testapp.data.models.DishesResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 

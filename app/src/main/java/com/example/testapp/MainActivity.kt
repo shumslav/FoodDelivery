@@ -1,23 +1,21 @@
 package com.example.testapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.testapp.databinding.ActivityMainBinding
-import com.example.testapp.fragments.MainFragment
 import com.example.testapp.viewModels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
+
 
 class MainActivity : AppCompatActivity() {
+
+//    private val locationManager =  this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+//    @RequiresApi(Build.VERSION_CODES.S)
+//    private val locationProvider = locationManager.getProviderProperties(LocationManager.GPS_PROVIDER)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +26,14 @@ class MainActivity : AppCompatActivity() {
         bottomMenu.setupWithNavController(navController)
 
         val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+//        val gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+
+//        if (!gpsEnabled){
+//            val settingsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+//            startActivity(settingsIntent)
+//        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

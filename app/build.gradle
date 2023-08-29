@@ -75,32 +75,39 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     //Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+    def NavigationVersion = "2.6.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:$NavigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$NavigationVersion"
 
     //Dagger 2
-    def daggerVersion = '2.46.1'
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    implementation "com.google.dagger:dagger:$daggerVersion"
+    def DaggerVersion = '2.46.1'
+    kapt "com.google.dagger:dagger-compiler:$DaggerVersion"
+    implementation "com.google.dagger:dagger:$DaggerVersion"
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Retrofit
-    def versionRetrofit = '2.9.0'
-    implementation "com.squareup.retrofit2:retrofit:$versionRetrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$versionRetrofit"
-    implementation "com.squareup.retrofit2:adapter-rxjava3:$versionRetrofit"
+    def RetrofitVersion = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$RetrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$RetrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$RetrofitVersion"
 
     //OkHttp
-    def versionOkHttp = '4.11.0'
-    implementation "com.squareup.okhttp3:okhttp:$versionOkHttp"
-    implementation("com.squareup.okhttp3:logging-interceptor:$versionOkHttp")
+    def OkHttpVersion = '4.11.0'
+    implementation "com.squareup.okhttp3:okhttp:$OkHttpVersion"
+    implementation("com.squareup.okhttp3:logging-interceptor:$OkHttpVersion")
 
 
     //RxJava
-    def versionRxJava = '3.1.6'
-    def versionRxAndroid = '3.0.2'
-    implementation "io.reactivex.rxjava3:rxjava:$versionRxJava"
-    implementation "io.reactivex.rxjava3:rxandroid:$versionRxAndroid"
+    def RxJavaVersion = '3.1.6'
+    def RxAndroidVersion = '3.0.2'
+    implementation "io.reactivex.rxjava3:rxjava:$RxJavaVersion"
+    implementation "io.reactivex.rxjava3:rxandroid:$RxAndroidVersion"
+
+    //Room
+    def RoomVersion = "2.5.2"
+    implementation "androidx.room:room-runtime:$RoomVersion"
+    kapt "androidx.room:room-compiler:$RoomVersion"
+    implementation "androidx.room:room-ktx:$RoomVersion"
 }

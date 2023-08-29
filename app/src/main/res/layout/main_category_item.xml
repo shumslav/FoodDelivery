@@ -6,7 +6,7 @@
 
         <variable
             name="category"
-            type="com.example.testapp.data.remote.models.CategoriesListItem" />
+            type="com.example.testapp.data.models.CategoriesListItem" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

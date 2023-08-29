@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
-import com.example.testapp.data.remote.models.DishesItem
+import com.example.testapp.data.models.DishesItem
 import com.example.testapp.databinding.DishesItemBinding
 import com.example.testapp.fragments.ProductFragment
 import com.example.testapp.fragments.SearchFragment

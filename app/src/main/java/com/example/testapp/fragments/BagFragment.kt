@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testapp.adapters.BagAdapter
-import com.example.testapp.data.remote.models.DishesItem
+import com.example.testapp.data.models.DishesItem
 import com.example.testapp.databinding.FragmentBagBinding
 import com.example.testapp.viewModels.MainViewModel
 
