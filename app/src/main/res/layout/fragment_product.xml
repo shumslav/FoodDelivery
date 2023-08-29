@@ -7,7 +7,7 @@
 
         <variable
             name="product"
-            type="com.example.testapp.data.models.DishesItem" />
+            type="com.example.testapp.data.remote.models.DishesItem" />
     </data>
 
     <RelativeLayout

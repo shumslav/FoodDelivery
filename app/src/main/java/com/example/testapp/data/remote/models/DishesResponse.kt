@@ -1,3 +1,3 @@
-package com.example.testapp.data.models
+package com.example.testapp.data.remote.models
 
 data class DishesResponse(val dishes: List<DishesItem>)

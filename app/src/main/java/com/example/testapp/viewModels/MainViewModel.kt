@@ -5,8 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.testapp.App
 import com.example.testapp.data.remote.TestApi
-import com.example.testapp.data.models.CategoriesListItem
-import com.example.testapp.data.models.DishesItem
+import com.example.testapp.data.remote.models.CategoriesListItem
+import com.example.testapp.data.remote.models.DishesItem
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers

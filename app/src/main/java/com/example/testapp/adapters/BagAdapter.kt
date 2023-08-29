@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testapp.data.models.DishesItem
+import com.example.testapp.data.remote.models.DishesItem
 import com.example.testapp.databinding.BagProductItemBinding
 import com.example.testapp.viewModels.MainViewModel
 import com.squareup.picasso.Picasso

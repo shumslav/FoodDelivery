@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.testapp.adapters.SearchDishesAdapter
-import com.example.testapp.data.models.DishesItem
+import com.example.testapp.data.remote.models.DishesItem
 import com.example.testapp.databinding.FragmentSearchBinding
 import com.example.testapp.viewModels.MainViewModel
 
