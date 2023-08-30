@@ -8,12 +8,15 @@ import com.example.testapp.data.local.room.typeConverters.TagsConverter
 
 
 @Entity(tableName = "dishes")
+@TypeConverters(TagsConverter::class)
 data class DishesEntity(
     @PrimaryKey val id: Long,
     val name:String,
     val price: Int,
     val weight: Int,
     val description:String,
-    @ColumnInfo(name = "image_url") val imageUrl:String,
-    @TypeConverters(TagsConverter::class) val tags: List<String>
+
+    @ColumnInfo(name = "image_url")
+    val imageUrl:String,
+    val tags: List<String>
 )
